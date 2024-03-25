@@ -1,0 +1,13 @@
+<div class="container p-3">
+  <h1 class="text-center">Les tournois</h1>
+  <div class="d-flex flex-row justify-content-center align-items-center">
+    <!-- https://getbootstrap.com/docs/5.3/components/card/ -->
+    <div class="card text-bg-info m-lg-3" *ngFor="let tournament of tournaments">
+      <div class="card-body">
+        <p class="card-title">Nom: {{ tournament.name }}</p>
+        <p class="card-text">Statut: {{ tournament.state }}</p>
+        <a routerLink="/tournaments/{{tournament.id}}" class="btn btn-primary">Détail</a>
+      </div>
+    </div>
+  </div>
+</div>

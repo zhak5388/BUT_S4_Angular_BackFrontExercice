@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="text-center mt-5">Connexion</h1>
+  <div class="card" style="max-width: 500px; margin:auto">
+    <div class="card-body">
+      <form (ngSubmit)=login()>
+        <div class="form-group mb-3">
+          <label for="username">Nom</label>
+          <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+        </div>
+        <div class="mb-3">
+          <button type="submit" class="btn btn-warning">Se connecter</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

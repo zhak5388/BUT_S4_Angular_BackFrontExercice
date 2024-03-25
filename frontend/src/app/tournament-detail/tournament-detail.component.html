@@ -1,0 +1,15 @@
+<div class="container">
+  <div *ngIf="!tournamentFound" class="text-center mt-5">
+    <h1>Oups! Ce tournoi n'a pas été trouvé</h1>
+    <a routerLink="/tournaments">Retour liste</a>
+  </div>
+  <div *ngIf="tournamentFound" class="text-center mt-5">
+    <h1>{{ tournament.name }}</h1>
+    <p>Id : {{ tournament.id }}</p>
+    <p>Status : {{ tournament.state }}</p>
+    <div *ngIf="tournament.state== 'OpenForRegistration'">
+      <div class="btn btn-warning">S'enregister</div>
+      <p>L'enregistrement non implémenté.</p>
+    </div>
+  </div>
+</div>

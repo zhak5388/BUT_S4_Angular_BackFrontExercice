@@ -1,0 +1,55 @@
+<div class="container">
+  <h1 class="text-center mt-5">Création de tournoi</h1>
+  <div *ngIf="!wasSubmitted" class="card" style="max-width: 500px; margin: auto;">
+    <div class="card-body">
+      <form (ngSubmit)="createTournament()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Nom du tournoi</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="tournament.name" required>
+        </div>
+        <div class="mb-3">
+          <label for="registrationStartDate" class="form-label">Date de début des inscriptions</label>
+          <input type="date" class="form-control" id="registrationStartDate" name="registrationStartDate"
+                 [(ngModel)]="tournament.registrationStartDate" required>
+        </div>
+        <div class="mb-3">
+          <label for="registrationCloseDate" class="form-label">Date de fin des inscriptions</label>
+          <input type="date" class="form-control" id="registrationCloseDate" name="registrationCloseDate"
+                 [(ngModel)]="tournament.registrationCloseDate" required>
+        </div>
+        <div class="mb-3">
+          <label for="startDate" class="form-label">Date de début du tournoi</label>
+          <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="tournament.startDate"
+                 required>
+        </div>
+        <div class="mb-3">
+          <label for="endDate" class="form-label">Date de fin du tournoi</label>
+          <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="tournament.endDate" required>
+        </div>
+        <div class="mb-3">
+          <label for="location" class="form-label">Lieu du tournoi</label>
+          <input type="text" class="form-control" id="location" name="location" [(ngModel)]="tournament.location"
+                 required>
+        </div>
+        <div class="mb-3">
+          <label for="maxParticipants" class="form-label">Nombre maximum de participants</label>
+          <input type="number" class="form-control" id="maxParticipants" name="maxParticipants"
+                 [(ngModel)]="tournament.maxParticipants" required>
+        </div>
+        <div class="mb-3">
+          <label for="nthPowerEliminationPhase" class="form-label">Phase d'élimination (puissance n)</label>
+          <input type="number" class="form-control" id="nthPowerEliminationPhase" name="nthPowerEliminationPhase"
+                 [(ngModel)]="tournament.nthPowerEliminationPhase" required>
+        </div>
+        <button type="submit" class="btn btn-warning">Créer le tournoi</button>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="wasSubmitted && creationSuccess">
+    <p>Le tournoi {{ this.tournament.name }} a été crée avec succès!</p>
+    <a routerLink="/tournaments" class="btn btn-warning">Voir les tournois</a>
+  </div>
+  <div *ngIf="wasSubmitted && !creationSuccess">
+    <p>La création a échoué <a routerLink="/tournament/new">Réessayer</a></p>
+  </div>
+</div>
